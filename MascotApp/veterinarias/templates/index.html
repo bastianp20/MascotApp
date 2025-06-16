@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MascotApp</title>
+  <link rel="stylesheet" href="{% static 'estilo.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- ENCABEZADO CON IMAGEN DIFUMINADA -->
+  <div class="encabezado">
+    <div class="encabezado-texto">Tu portal de veterinarias</div>
+  </div>
+
+  <!-- CARRUSEL DE FUNCIONALIDADES -->
+  <section class="carrusel">
+    <div class="card">
+      <i class="fas fa-notes-medical"></i>
+      <h4>Historial Médico</h4>
+      <a href="#">Ver detalles</a>
+    </div>
+    <div class="card">
+      <i class="fas fa-user-md"></i>
+      <h4>Acceso Veterinario</h4>
+      <a href="{% url 'veterinario' %}">Ingresar</a>
+
+    </div>
+    <div class="card">
+      <i class="fas fa-dog"></i>
+      <h4>Perfil Mascota</h4>
+      <a href="#">Carnet digital</a>
+    </div>
+    <div class="card">
+      <i class="fas fa-file-medical-alt"></i>
+      <h4>Informes y Recetas</h4>
+      <a href="#">Consultar</a>
+    </div>
+    <div class="card">
+      <i class="fas fa-star"></i>
+      <h4>Califica Veterinarios</h4>
+      <a href="#">Valorar</a>
+    </div>
+    <div class="card">
+      <i class="fas fa-shopping-cart"></i>
+      <h4>Marketplace</h4>
+      <a href="#">Explorar</a>
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="pie">
+    Petbook ® Marca registrada
+  </footer>
+</body>
+</html>
