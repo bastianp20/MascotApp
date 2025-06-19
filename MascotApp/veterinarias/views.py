@@ -15,7 +15,7 @@ def registro_veterinarios(request):
         form = RegistroVeterinarioForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return render(request, 'registro_exitoso.html')
+            return render(request, 'registro_exitoso.html') # ésta por crearse esta página, que será para confirmar si el registro fue exitoso. 
     else:
         form = RegistroVeterinarioForm()
     return render(request, 'registro_veterinarios.html', {'form': form})
