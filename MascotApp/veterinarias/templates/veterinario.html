@@ -5,9 +5,22 @@
     <meta charset="UTF-8">
     <title>Perfil Veterinario</title>
     <link rel="stylesheet" href="{% static 'veterinarios.css' %}">
+    <script src="{% static 'javascript/menu.js' %}"></script>
+    
 </head>
 <body>
-    <div id="menu-toggle" onclick="toggleMenu()"> ☰ </div>
+    <div id="menu-toggle" onclick="toggleMenu()">
+         ☰ 
+        </div>
+
+    <nav id="sidebar">
+    <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Mi perfil</a></li>
+        <li><a href="#">Pacientes</a></li>
+        <li><a href="#">Cerrar sesión</a></li>
+    </ul>
+</nav>
 
 </body>
 </html>
