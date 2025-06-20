@@ -21,7 +21,7 @@ instituciones = [
     ('UAconcagua', 'Universidad de Aconcagua'),
 ]
 
-class Veterinario(models.Model):
+class veterinario(models.Model):
     nombre = models.CharField(max_length=200)
     apellido = models.CharField(max_length=200)
     rut = models.CharField(max_length=20)

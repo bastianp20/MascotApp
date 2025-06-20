@@ -3,28 +3,11 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login Veterinarios</title>
-    <link rel="stylesheet" href="{% static 'css/veterinarios.css' %}">
+    <title>Perfil Veterinario</title>
+    <link rel="stylesheet" href="{% static 'veterinarios.css' %}">
 </head>
 <body>
-
-    <div class="login-container">
-        <h1>Login de Veterinarios</h1>
-
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Ingresar</button>
-        </form>
-
-        {% if veterinario.verificado %}
-            <div class="verificacion" style="color: green;">✔ Veterinario Verificado</div>
-        {% else %}
-            <div class="verificacion" style="color: red;">❌ No Verificado</div>
-        {% endif %}
-
-        <a href="{% url 'registro_veterinarios' %}" class="registro-link">¿Eres nuevo? Regístrate aquí</a>
-    </div>
+    <div id="menu-toggle" onclick="toggleMenu()"> ☰ </div>
 
 </body>
 </html>

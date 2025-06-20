@@ -1,15 +1,57 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Registro Veterinario</title>
+    <meta charset="UTF-8">
+    <title>Registro Veterinarios</title>
+    <link rel="stylesheet" href="{% static 'veterinarios.css' %}">
 </head>
 <body>
-    <h1>Registro de Veterinarios</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Registrar</button>
-    </form>
+
+    <div class="login-container">
+        <h1>Registro de Veterinarios</h1>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <input type="text" name="nombre" placeholder="Nombre" required>
+
+            <input type="text" name="apellido" placeholder="Apellido" required>
+
+            <input type="text" name="rut" placeholder="RUT (sin puntos, con guion)" required>
+
+            <input type="email" name="email" placeholder="Correo Electrónico" required>
+
+            <label for="institucion">Institución donde estudió:</label>
+            <select name="institucion" id="institucion" required>
+                <option value="" disabled selected>Seleccione una institución</option>
+                <option value="UChile">Universidad de Chile</option>
+                <option value="PUC">Pontificia Universidad Católica de Chile</option>
+                <option value="UCMaule">Universidad Católica del Maule</option>
+                <option value="UAustral">Universidad Austral de Chile</option>
+                <option value="UdeC">Universidad de Concepción</option>
+                <option value="UMayor">Universidad Mayor</option>
+                <option value="USS">Universidad San Sebastián</option>
+                <option value="UDLA">Universidad de Las Américas</option>
+                <option value="UBO">Universidad Bernardo O’Higgins</option>
+                <option value="UCTemuco">Universidad Católica de Temuco</option>
+                <option value="USTomas">Universidad Santo Tomás</option>
+                <option value="UVM">Universidad Viña del Mar</option>
+                <option value="UNAB">Universidad Nacional Andrés Bello</option>
+                <option value="DuocUC">Duoc UC</option>
+                <option value="IPValleCentral">Instituto Profesional Valle Central</option>
+                <option value="IDMA">Centro de Formación Técnica IDMA</option>
+                <option value="UAconcagua">Universidad de Aconcagua</option>
+            </select>
+
+            <label for="certificado">Certificado (archivo):</label>
+            <input type="file" name="certificado" id="certificado" required>
+
+            <button type="submit">Registrarse</button>
+        </form>
+
+        <a href="{% url 'login_veterinarios' %}" class="registro-link">¿Ya tienes cuenta? Inicia sesión aquí</a>
+    </div>
+
 </body>
 </html>
