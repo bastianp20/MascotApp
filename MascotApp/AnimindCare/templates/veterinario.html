@@ -6,10 +6,11 @@
     <title>Perfil Veterinario</title>
     <link rel="stylesheet" href="{% static 'barra_menu_izquierda.css' %}">
     <link rel="stylesheet" href="{% static 'perfil_veterinarios.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="{% static 'javascript/menu.js' %}"></script>
     
 </head>
-<body>
+<body class="body">
      <h1 class="titulo">
         Perfil del Veterinario 
     </h1>
@@ -20,10 +21,11 @@
 
     <nav id="sidebar">
     <ul>
-        <li><a href="{% url 'index' %}">Inicio</a></li>
-        <li><a href="{% url 'veterinario' %}">Mi perfil</a></li>
-        <li><a href="*">Pacientes</a></li>
-        <li><a href="*">Cerrar sesión</a></li>
+        <li><a href="{% url 'index' %}" class="tipografia">Inicio</a></li>
+        <li><a href="{% url 'veterinario' %}" class="tipografia">Mi perfil</a></li>
+        <li><a href="*" class="tipografia">Mis Pacientes</a></li>
+        <li><a href="*" class="tipografia">Generar Receta Medica</a></li>
+        <li><a href="*" class="tipografia">Cerrar sesión</a></li>
     </ul>
 </nav>
 

@@ -19,3 +19,6 @@ def registro_veterinarios(request):
     else:
         form = RegistroVeterinarioForm()
     return render(request, 'registro_veterinarios.html', {'form': form})
+
+def inicio_vet(request):
+    return render(request, 'inicio_vet.html')

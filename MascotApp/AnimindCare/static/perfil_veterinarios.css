@@ -1,0 +1,15 @@
+.titulo{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 40px;
+    color: #2c3e50;
+}
+.body{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.tipografia{
+    font-family: 'Roboto', sans-serif;
+     font-weight: 600;
+}

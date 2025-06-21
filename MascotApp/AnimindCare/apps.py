@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class VeterinariasConfig(AppConfig):
+class AnimindCareConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'veterinarias'
+    name = 'AnimindCare'
