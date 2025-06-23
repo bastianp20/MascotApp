@@ -13,6 +13,7 @@ body {
   padding: 20px;
 }
 
+
 .login-container {
   background-color: white;
   padding: 40px;
@@ -36,6 +37,7 @@ form {
 
 form input[type="text"],
 form input[type="email"],
+form input[type="password"],
 form input[type="file"],
 form select {
   padding: 10px;
@@ -79,15 +81,4 @@ button[type="submit"]:hover {
   text-decoration: underline;
 }
 
-input[type="password"] {
-  appearance: none;         /* Quita estilos del navegador */
-  -webkit-appearance: none; /* Quita estilos en Safari/Chrome */
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 100%;
-  background-color: white;
-  color: black;
-  font-family: 'Roboto', sans-serif;
-  box-sizing: border-box;
-}
+
