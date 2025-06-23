@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
-from .forms import RegistroVeterinarioForm
+from .forms import Veterinario
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
 
-def veterinario(request):
+def perfil_veterinario(request):
     return render(request, 'veterinario.html',{
         'form': UserCreationForm
     }) 
@@ -19,7 +19,7 @@ def registro_veterinarios(request):
         institucion = request.POST['institucion']
         certificado = request.FILES['certificado']
 
-        veterinario.objects.create(
+        Veterinario.objects.create(
             nombre=nombre,
             apellido=apellido,
             rut=rut,

@@ -1,8 +1,8 @@
 # MascotApp/forms.py
 from django import forms
-from .models import veterinario
+from .models import Veterinario
 
 class RegistroVeterinarioForm(forms.ModelForm):
     class Meta:
-        model = veterinario
+        model = Veterinario
         fields = ['nombre', 'apellido', 'rut', 'email', 'certificado', 'institucion', 'verificado']

@@ -21,15 +21,17 @@ instituciones = [
     ('UAconcagua', 'Universidad de Aconcagua'),
 ]
 
-class veterinario(models.Model):
+class Veterinario(models.Model):
     nombre = models.CharField(max_length=200)
     apellido = models.CharField(max_length=200)
     rut = models.CharField(max_length=20)
     email = models.EmailField(unique=True)
+    contraseña = models.CharField(max_length=20, default='123')
     certificado = models.FileField(upload_to='certificados/')
     institucion = models.CharField(max_length=100, choices=instituciones)
     verificado = models.BooleanField(default=False)
-    contraseña = models.CharField(max_length=20, default='123')
+
+# el str self, hace que en la web donde estará la base de datos de django (por ahora) hace que una vez se registre la persona aparezca en el directorio de la pagina con su nombre, apellido, rut, y estado de verificacion 
 
     def __str__(self):
-        return f"{self.nombre} {self.apellido}"
+        return f"{self.nombre} {self.apellido} {self.rut} {self.verificado}" 

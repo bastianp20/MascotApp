@@ -1,0 +1,4 @@
+notas: 
+las clases de vidrios estaban dividas en 3 (vidrios verdes, grises y blancos) se juntaron las 3 para que pudiese trabajar mucho mejor el código y en vez de separarlos por colores, si es verde o gris, lo reconozca como vidrio igual 
+
+se trabajo con tensorflow en visual estudio code, y luego para portarlo a un archivo model.json y sus respectivos bin se uso el Google colab, ya que visual studio code fue muy útil para entrenar el código y su aumento de datos pero a la hora de transformar un archivo h5 a  
