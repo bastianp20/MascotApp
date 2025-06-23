@@ -29,6 +29,7 @@ class veterinario(models.Model):
     certificado = models.FileField(upload_to='certificados/')
     institucion = models.CharField(max_length=100, choices=instituciones)
     verificado = models.BooleanField(default=False)
+    contraseña = models.CharField(max_length=20, default='123')
 
     def __str__(self):
         return f"{self.nombre} {self.apellido}"

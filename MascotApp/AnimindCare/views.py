@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import RegistroVeterinarioForm
 # Create your views here.
@@ -12,13 +12,26 @@ def veterinario(request):
 
 def registro_veterinarios(request):
     if request.method == 'POST':
-        form = RegistroVeterinarioForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return render(request, 'registro_exitoso.html') # ésta por crearse esta página, que será para confirmar si el registro fue exitoso. 
-    else:
-        form = RegistroVeterinarioForm()
-    return render(request, 'registro_veterinarios.html', {'form': form})
+        nombre = request.POST['nombre']
+        apellido = request.POST['apellido']
+        rut = request.POST['rut']
+        email = request.POST['email']
+        institucion = request.POST['institucion']
+        certificado = request.FILES['certificado']
+
+        veterinario.objects.create(
+            nombre=nombre,
+            apellido=apellido,
+            rut=rut,
+            email=email,
+            institucion=institucion,
+            certificado=certificado,
+            verificado=True,  # a este campo le colocamos True por mientras ya que estamos en epocas de prueba
+            contraseña='1234'  # Contraseña temporal
+        )
+        return redirect('inicio_vet') # esto nos retorna al login de los vet 
+
+    return render(request, 'registro_veterinarios.html')
 
 def inicio_vet(request):
     return render(request, 'inicio_vet.html')
