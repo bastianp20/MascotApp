@@ -7,7 +7,7 @@ body::before {
   left: 0;
   width: 90%;
   height: 90%;
-  background-image: url("/imagenes/foto_patita.png"); 
+  background-image: url(imagenes/petbook_foto.png); 
   background-size: cover;
   background-position: center;
   filter: blur(8px);
