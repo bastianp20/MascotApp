@@ -6,6 +6,7 @@
     <title>Registro Veterinarios</title>
     <link rel="stylesheet" href="{% static 'registro_veterinarios.css' %}">
     <link rel="stylesheet" href="{% static 'reg_vet_foto_borrosa.css' %}">
+    <script src="{% static 'javascript/registro_vet.js' %}"></script>
 </head>
 <body>
 
@@ -24,8 +25,6 @@
             <input type="email" name="email" placeholder="Correo Electrónico" required>
 
             <input type="password" name="contraseña" placeholder="Contraseña" required>
-
-
 
             <label for="institucion">Institución donde estudió:</label>
             <select name="institucion" id="institucion" required>
@@ -49,7 +48,20 @@
                 <option value="UAconcagua">Universidad de Aconcagua</option>
             </select>
 
-            <label for="certificado">Certificado (archivo):</label>
+            <!-- Tipo de veterinario -->
+            <label for="tipo_veterinario">Tipo de veterinario:</label>
+            <select name="tipo_veterinario" id="tipo_veterinario" required>
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="IND">Independiente</option>
+                <option value="CLIN">Centro Veterinario</option>
+            </select>
+
+            <!-- Campo condicional: nombre del centro -->
+            <div id="nombre-centro-container">
+                <input type="text" name="nombre_centro" placeholder="Nombre del centro veterinario">
+            </div>
+
+            <label for="certificado">Certificado de estudio (archivo):</label>
             <input type="file" name="certificado" id="certificado" required>
 
             <button type="submit">Registrarse</button>
@@ -57,6 +69,5 @@
 
         <a href="{% url 'inicio_vet' %}" class="registro-link">¿Ya tienes cuenta? Inicia sesión aquí</a>
     </div>
-
 </body>
 </html>

@@ -8,26 +8,64 @@
     <link rel="stylesheet" href="{% static 'perfil_veterinarios.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="{% static 'javascript/menu.js' %}"></script>
-    
 </head>
-<body class="body">
-     <h1 class="titulo">
-        Perfil del Veterinario 
-    </h1>
 
-    <div id="menu-toggle" onclick="toggleMenu()">
-         ☰ 
-        </div>
+<body class="body">
+    <h1 class="titulo">Perfil del Veterinario</h1>
+
+    <div id="menu-toggle" onclick="toggleMenu()">☰</div>
 
     <nav id="sidebar">
-    <ul>
-        <li><a href="{% url 'index' %}" class="tipografia">Inicio</a></li>
-        <li><a href="{% url 'veterinario' %}" class="tipografia">Mi perfil</a></li>
-        <li><a href="*" class="tipografia">Mis Pacientes</a></li>
-        <li><a href="*" class="tipografia">Generar Receta Medica</a></li>
-        <li><a href="*" class="tipografia">Cerrar sesión</a></li>
-    </ul>
-</nav>
+        <ul>
+            <li><a href="{% url 'index' %}" class="tipografia">Inicio</a></li>
+            <li><a href="{% url 'veterinario' %}" class="tipografia">Mi perfil</a></li>
+            <li><a href="*" class="tipografia">Mis Pacientes</a></li>
+            <li><a href="*" class="tipografia">Generar Receta Médica</a></li>
+            <li><a href="*" class="tipografia">Cerrar sesión</a></li>
+        </ul>
+    </nav>
 
+    <main class="contenedor-perfil">
+        <section class="perfil-veterinario">
+            <img src="{% static 'img/default-user.jpg' %}" alt="Foto del veterinario" class="foto-vet">  <!-- puedes reemplazar esto por un campo de imagen si lo agregas al modelo -->
+            <div class="info-vet">
+                <h2>{{ veterinario.nombre }} {{ veterinario.apellido }}</h2>
+                <p><strong>RUT:</strong> {{ veterinario.rut }}</p>
+                <p><strong>Email:</strong> {{ veterinario.email }}</p>
+                <p><strong>Institución:</strong> {{ veterinario.get_institucion_display }}</p>
+                <p><strong>Tipo:</strong> {{ veterinario.get_veterinario_tipo_display }}</p>
+                {% if veterinario.veterinario_tipo == "CLIN" %}
+                    <p><strong>Centro Veterinario:</strong> {{ veterinario.nombre_centro }}</p>
+                {% endif %}
+                <p><strong>Verificado:</strong> 
+                    {% if veterinario.verificado %}
+                        ✅ Verificado
+                    {% else %}
+                        ❌ No verificado
+                    {% endif %}
+                </p>
+            </div>
+        </section>
+
+        {% if veterinario.veterinario_tipo == "CLIN" %}
+            <section class="asistentes">
+                <h3>Mi equipo de trabajo</h3>
+                <div class="equipo">
+                    {% for miembro in miembros %}
+                        <div class="miembro">
+                            {% if miembro.foto %}
+                                <img src="{{ miembro.foto.url }}" alt="{{ miembro.nombre }}">
+                            {% else %}
+                                <img src="{% static 'img/default-user.jpg' %}" alt="Miembro sin foto">
+                            {% endif %}
+                            <p><strong>{{ miembro.nombre }}</strong><br>{{ miembro.rol }}</p>
+                        </div>
+                    {% empty %}
+                        <p>No hay miembros registrados aún.</p>
+                    {% endfor %}
+                </div>
+            </section>
+        {% endif %}
+    </main>
 </body>
 </html>
